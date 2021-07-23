@@ -140,3 +140,9 @@ function shoeSize(inputPlayer) {
 }
 
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().home.players)];
+
+function tester(array, tester) {
+  for (const element of array) {
+    console.log(tester(element));
+  }
+}
