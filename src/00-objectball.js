@@ -139,6 +139,16 @@ function shoeSize(inputPlayer) {
   }
 }
 
+function teamColors(inputTeamName) {
+  const game = gameObject();
+  for (const teams in game) {
+    const currentTeam = game[teams];
+    if (currentTeam.teamName === inputTeamName) {
+      return currentTeam.colors;
+    }
+  }
+}
+
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().home.players)];
 
 function tester(array, tester) {
