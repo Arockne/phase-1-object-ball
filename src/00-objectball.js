@@ -133,7 +133,7 @@ function shoeSize(inputPlayer) {
     const team = game[teams].players;
     for (const player in team) {
       if (player === inputPlayer) {
-        return `${inputPlayer}'s shoe size is ${team[player].shoeSize}`;
+        return `${inputPlayer}'s shoe size is ${team[player].shoe}`;
       }
     }
   }
