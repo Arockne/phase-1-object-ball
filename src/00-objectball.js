@@ -1,15 +1,3 @@
-//implement gameObject
-  //no arguments
-  //contains an object literal to build upon
-    //top level two properties
-      //home -homeTeam, obj
-        //properties:
-          //teamName -> string(teamName)
-          //colors -> arrayStrings(team'sColors)
-          //players -> obj(playersNames)
-            //their stats
-              //number, shoe, points, rebounds, assists, steals, blocks, slamDunks
-      //away -awayTeam, obj
 function gameObject() {
   return {
     home: {
@@ -126,5 +114,3 @@ function gameObject() {
     }
   }
 }
-
-// function tester(player, numbers)
