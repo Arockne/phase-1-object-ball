@@ -138,3 +138,5 @@ function shoeSize(inputPlayer) {
     }
   }
 }
+
+const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().home.players)];
