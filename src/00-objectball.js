@@ -149,6 +149,15 @@ function teamColors(inputTeamName) {
   }
 }
 
+function teamNames(gameObj) {
+  const teamNames = [];
+  for (const teams in gameObj) {
+    const currentTeam = gameObj[teams];
+    teamNames.push(currentTeam.teamName);
+  }
+  return teamNames;
+}
+
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().home.players)];
 
 function tester(array, tester) {
