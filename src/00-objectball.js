@@ -126,3 +126,15 @@ function numPointsScored(inputPlayer) {
     }
   }
 }
+
+function shoeSize(inputPlayer) {
+  const game = gameObject();
+  for (const teams in game) {
+    const team = game[teams].players;
+    for (const player in team) {
+      if (player === inputPlayer) {
+        return `${inputPlayer}'s shoe size is ${team[player].shoeSize}`;
+      }
+    }
+  }
+}
