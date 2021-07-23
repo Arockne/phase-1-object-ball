@@ -114,3 +114,15 @@ function gameObject() {
     }
   }
 }
+
+function numPointsScored(inputPlayer) {
+  const game = gameObject();
+  for (const teams in game) {
+    const team = game[teams].players;
+    for (const player in team) {
+      if (player === inputPlayer) {
+        return `${inputPlayer} has scored ${team[player].points}`
+      }
+    }
+  }
+}
