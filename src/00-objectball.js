@@ -152,14 +152,19 @@ function teamColors(teamInput) {
 //   }
 // }
 
-function teamNames(gameObj) {
-  const teamNames = [];
-  for (const teams in gameObj) {
-    const currentTeam = gameObj[teams];
-    teamNames.push(currentTeam.teamName);
-  }
-  return teamNames;
+//Build a function, teamNames, that operates on the game object to return an array of the team names.
+function teamNames() {
+  return [homeTeam().teamName, awayTeam().teamName];
 }
+
+// function teamNames(gameObj) {
+//   const teamNames = [];
+//   for (const teams in gameObj) {
+//     const currentTeam = gameObj[teams];
+//     teamNames.push(currentTeam.teamName);
+//   }
+//   return teamNames;
+// }
 
 function playerNumbers(inputTeamName) {
   const jearseyNumbers = [];
@@ -273,7 +278,7 @@ function doesLongNameStealATon(game) {
 }
 
 const playersArray = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
-const teams = teamNames(gameObject());
+const teams = teamNames();
 
 function tester(array, tester) {
   for (const element of array) {
