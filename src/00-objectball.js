@@ -185,6 +185,23 @@ function playerStats(playerName) {
   }
 }
 
+function bigShoeRebounds() {
+  const game = gameObject();
+  let largestShoe = -Infinity;
+  let playerPointer = {};
+  for (const teams in game) {
+    const players = game[teams].players;
+    for (const player in players) {
+      const currentShoe = players[player].shoe;
+      if (currentShoe > largestShoe) {
+        largetShoe = currentShoe;
+        playerPointer = players[player];
+      }
+    }
+  }
+  return playerPointer.rebounds;
+}
+
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
 const teams = teamNames(gameObject());
 
