@@ -38,7 +38,7 @@ function gameObject() {
           number: 1,
           shoe: 19,
           points: 26,
-          rebounds: 19,
+          rebounds: 12,
           assists: 6,
           steals: 3,
           blocks: 8,
@@ -173,7 +173,7 @@ function playerNumbers(inputTeamName) {
   return jearseyNumbers;
 }
 
-const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().home.players)];
+const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
 const teams = teamNames(gameObject());
 
 function tester(array, tester) {
