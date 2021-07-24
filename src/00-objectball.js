@@ -236,7 +236,20 @@ function winningTeam(game) {
   return winner;
 }
 //which player has the longest name? call function playerWithLongestName
-
+function playerWithLongestName(game) {
+  let longestName;
+  let longestLength = 0;
+  for (const teams in game) {
+    const players = game[teams].players;
+    for (const player in players) {
+      if (player.length > longestLength) {
+        longestLength = player.length;
+        longestName = player;
+      }
+    }
+  }
+  return longestName;
+}
 
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
 const teams = teamNames(gameObject());
