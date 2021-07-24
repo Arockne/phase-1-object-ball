@@ -251,6 +251,24 @@ function playerWithLongestName(game) {
   return longestName;
 }
 
+//SUPER BONUS!!!!!!!
+//Write a function that returns true if the player with the longest name has the most steals
+function doesLongNameStealATon(game) {
+  let playerWithMostSteals;
+  let steals = 0;
+  for (const teams in game) {
+    const players = game[teams].players;
+    for (const player in players) {
+      const currentPlayerSteals = players[player].steals;
+      if (currentPlayerSteals > steals) {
+        steals = currentPlayerSteals;
+        playerWithMostSteals = player;
+      }
+    }
+  }
+  return playerWithMostSteals === playerWithLongestName(game);
+}
+
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
 const teams = teamNames(gameObject());
 
