@@ -132,17 +132,11 @@ function numPointsScored(playerInput) {
   return players()[playerInput].points;
 }
 
-function shoeSize(inputPlayer) {
-  const game = gameObject();
-  for (const teams in game) {
-    const team = game[teams].players;
-    for (const player in team) {
-      if (player === inputPlayer) {
-        return `${inputPlayer}'s shoe size is ${team[player].shoe}`;
-      }
-    }
-  }
+//Build a function, shoeSize, that takes in an argument of a player's name and returns the shoe size for that player.
+function shoeSize(playerInput) {
+  return players()[playerInput].shoe;
 }
+
 
 function teamColors(inputTeamName) {
   const game = gameObject();
@@ -274,7 +268,7 @@ function doesLongNameStealATon(game) {
   return playerWithMostSteals === playerWithLongestName(game);
 }
 
-//const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
+const playersArray = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
 const teams = teamNames(gameObject());
 
 function tester(array, tester) {
