@@ -188,34 +188,46 @@ function playerNumbers(teamName) {
 //   return jearseyNumbers;
 // }
 
-function playerStats(playerName) {
-  const game = gameObject();
-  for (const teams in game) {
-    const players = game[teams].players;
-    for (const player in players) {
-      if (player === playerName) {
-        return players[player];
-      }
-    }
-  }
+//Build a function, playerStats, that takes in an argument of a player's name and returns a object of that player's stats.
+function playerStats(playerInput) {
+  return players()[playerInput];
 }
 
+// function playerStats(playerName) {
+//   const game = gameObject();
+//   for (const teams in game) {
+//     const players = game[teams].players;
+//     for (const player in players) {
+//       if (player === playerName) {
+//         return players[player];
+//       }
+//     }
+//   }
+// }
+
+//Build a function, bigShoeRebounds, that will return the number of rebounds associated with the player that has the largest shoe size.
 function bigShoeRebounds() {
-  const game = gameObject();
-  let largestShoe = -Infinity;
-  let playerPointer = {};
-  for (const teams in game) {
-    const players = game[teams].players;
-    for (const player in players) {
-      const currentShoe = players[player].shoe;
-      if (currentShoe > largestShoe) {
-        largetShoe = currentShoe;
-        playerPointer = players[player];
-      }
-    }
-  }
-  return playerPointer.rebounds;
+  const playersArray = Object.entries(players());
+  const biggestShoe = playersArray.reduce((a, b) => a[1].shoe > b[1].shoe ? a : b);
+  return biggestShoe[1].rebounds;
 }
+
+// function bigShoeRebounds() {
+//   const game = gameObject();
+//   let largestShoe = -Infinity;
+//   let playerPointer = {};
+//   for (const teams in game) {
+//     const players = game[teams].players;
+//     for (const player in players) {
+//       const currentShoe = players[player].shoe;
+//       if (currentShoe > largestShoe) {
+//         largetShoe = currentShoe;
+//         playerPointer = players[player];
+//       }
+//     }
+//   }
+//   return playerPointer.rebounds;
+// }
 
 //Bonus questions:
 //Which player has the most points? call function mostPointsScored
