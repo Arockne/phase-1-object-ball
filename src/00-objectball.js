@@ -219,6 +219,22 @@ function mostPointsScored(game) {
   return playerWithMostPoints;
 }
 //Which team has the most points call function winningTeam
+function winningTeam(game) {
+  let mostPoints = 0;
+  let winner;
+  for (const teams in game) {
+    let sumOfPlayerPoints = 0;
+    let players = game[teams].players;
+    for (const player in players) {
+      sumOfPlayerPoints += players[player].points;
+    }
+    if (sumOfPlayerPoints > mostPoints) {
+      mostPoints = sumOfPlayerPoints;
+      winner = game[teams].teamName;
+    }
+  }
+  return winner;
+}
 //which player has the longest name? call function playerWithLongestName
 
 
