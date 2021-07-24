@@ -158,6 +158,21 @@ function teamNames(gameObj) {
   return teamNames;
 }
 
+function playerNumbers(inputTeamName) {
+  const jearseyNumbers = [];
+  const game = gameObject();
+  for (const teams in game) {
+    const currentTeam = game[teams];
+    if (currentTeam.teamName === inputTeamName) {
+      const players = currentTeam.players;
+      for (const player in players) {
+        jearseyNumbers.push(players[player].number);
+      }
+    }
+  }
+  return jearseyNumbers;
+}
+
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().home.players)];
 
 function tester(array, tester) {
