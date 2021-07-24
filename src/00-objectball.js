@@ -299,23 +299,28 @@ function playerWithLongestName() {
 
 //SUPER BONUS!!!!!!!
 //Write a function that returns true if the player with the longest name has the most steals
-function doesLongNameStealATon(game) {
-  let playerWithMostSteals;
-  let steals = 0;
-  for (const teams in game) {
-    const players = game[teams].players;
-    for (const player in players) {
-      const currentPlayerSteals = players[player].steals;
-      if (currentPlayerSteals > steals) {
-        steals = currentPlayerSteals;
-        playerWithMostSteals = player;
-      }
-    }
-  }
-  return playerWithMostSteals === playerWithLongestName(game);
+function doesLongNameStealATon() {
+  const playersArray = Object.entries(players());
+  const playerWithMostSteals = playersArray.reduce((a, b) => a[1].steals > b[1].steals ? a : b);
+  return playerWithMostSteals[0] === playerWithLongestName();
 }
+// function doesLongNameStealATon(game) {
+//   let playerWithMostSteals;
+//   let steals = 0;
+//   for (const teams in game) {
+//     const players = game[teams].players;
+//     for (const player in players) {
+//       const currentPlayerSteals = players[player].steals;
+//       if (currentPlayerSteals > steals) {
+//         steals = currentPlayerSteals;
+//         playerWithMostSteals = player;
+//       }
+//     }
+//   }
+//   return playerWithMostSteals === playerWithLongestName(game);
+// }
 
-const playersArray = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
+const playersArray = Object.keys(players());
 const teams = teamNames();
 
 function tester(array, tester) {
