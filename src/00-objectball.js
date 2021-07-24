@@ -137,16 +137,20 @@ function shoeSize(playerInput) {
   return players()[playerInput].shoe;
 }
 
-
-function teamColors(inputTeamName) {
-  const game = gameObject();
-  for (const teams in game) {
-    const currentTeam = game[teams];
-    if (currentTeam.teamName === inputTeamName) {
-      return currentTeam.colors;
-    }
-  }
+//Build a function, teamColors, that takes in an argument of the team name and returns an array of that teams colors.
+function teamColors(teamInput) {
+  return awayTeam().teamName === teamInput ? awayTeam().colors : homeTeam().colors;
 }
+
+// function teamColors(inputTeamName) {
+//   const game = gameObject();
+//   for (const teams in game) {
+//     const currentTeam = game[teams];
+//     if (currentTeam.teamName === inputTeamName) {
+//       return currentTeam.colors;
+//     }
+//   }
+// }
 
 function teamNames(gameObj) {
   const teamNames = [];
