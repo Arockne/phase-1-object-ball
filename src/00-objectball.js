@@ -115,16 +115,21 @@ function gameObject() {
   }
 }
 
-function numPointsScored(inputPlayer) {
-  const game = gameObject();
-  for (const teams in game) {
-    const team = game[teams].players;
-    for (const player in team) {
-      if (player === inputPlayer) {
-        return `${inputPlayer} has scored ${team[player].points}`
-      }
-    }
-  }
+function homeTeam() {
+  return gameObject().home;
+}
+
+function awayTeam() {
+  return gameObject().away;
+}
+
+function players() {
+  return Object.assign({}, homeTeam().players, awayTeam().players);
+}
+
+//Build a function, numPointsScored that takes in an argument of a player's name and returns the number of points scored for that player.
+function numPointsScored(playerInput) {
+  return players()[playerInput].points;
 }
 
 function shoeSize(inputPlayer) {
@@ -269,7 +274,7 @@ function doesLongNameStealATon(game) {
   return playerWithMostSteals === playerWithLongestName(game);
 }
 
-const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
+//const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
 const teams = teamNames(gameObject());
 
 function tester(array, tester) {
