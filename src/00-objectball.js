@@ -174,6 +174,7 @@ function playerNumbers(inputTeamName) {
 }
 
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().home.players)];
+const teams = teamNames(gameObject());
 
 function tester(array, tester) {
   for (const element of array) {
