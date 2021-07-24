@@ -173,6 +173,18 @@ function playerNumbers(inputTeamName) {
   return jearseyNumbers;
 }
 
+function playerStats(playerName) {
+  const game = gameObject();
+  for (const teams in game) {
+    const players = game[teams].players;
+    for (const player in players) {
+      if (player === playerName) {
+        return players[player];
+      }
+    }
+  }
+}
+
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
 const teams = teamNames(gameObject());
 
