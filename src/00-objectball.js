@@ -202,6 +202,26 @@ function bigShoeRebounds() {
   return playerPointer.rebounds;
 }
 
+//Bonus questions:
+//Which player has the most points? call function mostPointsScored
+function mostPointsScored(game) {
+  let mostPoints = 0;
+  let playerWithMostPoints;
+  for (const teams in game) {
+    const team = game[teams].players;
+    for (const player in team) {
+      if (team[player].points > mostPoints) {
+        mostPoints = team[player].points;
+        playerWithMostPoints = player;
+      }
+    }
+  }
+  return playerWithMostPoints;
+}
+//Which team has the most points call function winningTeam
+//which player has the longest name? call function playerWithLongestName
+
+
 const players = [...Object.keys(gameObject().home.players), ...Object.keys(gameObject().away.players)];
 const teams = teamNames(gameObject());
 
