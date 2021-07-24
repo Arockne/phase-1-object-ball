@@ -166,20 +166,27 @@ function teamNames() {
 //   return teamNames;
 // }
 
-function playerNumbers(inputTeamName) {
-  const jearseyNumbers = [];
-  const game = gameObject();
-  for (const teams in game) {
-    const currentTeam = game[teams];
-    if (currentTeam.teamName === inputTeamName) {
-      const players = currentTeam.players;
-      for (const player in players) {
-        jearseyNumbers.push(players[player].number);
-      }
-    }
-  }
-  return jearseyNumbers;
+//Build a function, playerNumbers, that takes in an argument of a team name and returns an array of the jersey number's for that team.
+function playerNumbers(teamName) {
+  const teamObject = awayTeam().teamName === teamName ? awayTeam() : homeTeam();
+  const players = Object.entries(teamObject.players);
+  return players.map(player => player[1].number);
 }
+
+// function playerNumbers(inputTeamName) {
+//   const jearseyNumbers = [];
+//   const game = gameObject();
+//   for (const teams in game) {
+//     const currentTeam = game[teams];
+//     if (currentTeam.teamName === inputTeamName) {
+//       const players = currentTeam.players;
+//       for (const player in players) {
+//         jearseyNumbers.push(players[player].number);
+//       }
+//     }
+//   }
+//   return jearseyNumbers;
+// }
 
 function playerStats(playerName) {
   const game = gameObject();
