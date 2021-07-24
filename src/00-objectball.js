@@ -142,29 +142,10 @@ function teamColors(teamInput) {
   return awayTeam().teamName === teamInput ? awayTeam().colors : homeTeam().colors;
 }
 
-// function teamColors(inputTeamName) {
-//   const game = gameObject();
-//   for (const teams in game) {
-//     const currentTeam = game[teams];
-//     if (currentTeam.teamName === inputTeamName) {
-//       return currentTeam.colors;
-//     }
-//   }
-// }
-
 //Build a function, teamNames, that operates on the game object to return an array of the team names.
 function teamNames() {
   return [homeTeam().teamName, awayTeam().teamName];
 }
-
-// function teamNames(gameObj) {
-//   const teamNames = [];
-//   for (const teams in gameObj) {
-//     const currentTeam = gameObj[teams];
-//     teamNames.push(currentTeam.teamName);
-//   }
-//   return teamNames;
-// }
 
 //Build a function, playerNumbers, that takes in an argument of a team name and returns an array of the jersey number's for that team.
 function playerNumbers(teamName) {
@@ -173,37 +154,10 @@ function playerNumbers(teamName) {
   return players.map(player => player[1].number);
 }
 
-// function playerNumbers(inputTeamName) {
-//   const jearseyNumbers = [];
-//   const game = gameObject();
-//   for (const teams in game) {
-//     const currentTeam = game[teams];
-//     if (currentTeam.teamName === inputTeamName) {
-//       const players = currentTeam.players;
-//       for (const player in players) {
-//         jearseyNumbers.push(players[player].number);
-//       }
-//     }
-//   }
-//   return jearseyNumbers;
-// }
-
 //Build a function, playerStats, that takes in an argument of a player's name and returns a object of that player's stats.
 function playerStats(playerInput) {
   return players()[playerInput];
 }
-
-// function playerStats(playerName) {
-//   const game = gameObject();
-//   for (const teams in game) {
-//     const players = game[teams].players;
-//     for (const player in players) {
-//       if (player === playerName) {
-//         return players[player];
-//       }
-//     }
-//   }
-// }
 
 //Build a function, bigShoeRebounds, that will return the number of rebounds associated with the player that has the largest shoe size.
 function bigShoeRebounds() {
@@ -212,23 +166,6 @@ function bigShoeRebounds() {
   return biggestShoe.rebounds;
 }
 
-// function bigShoeRebounds() {
-//   const game = gameObject();
-//   let largestShoe = -Infinity;
-//   let playerPointer = {};
-//   for (const teams in game) {
-//     const players = game[teams].players;
-//     for (const player in players) {
-//       const currentShoe = players[player].shoe;
-//       if (currentShoe > largestShoe) {
-//         largetShoe = currentShoe;
-//         playerPointer = players[player];
-//       }
-//     }
-//   }
-//   return playerPointer.rebounds;
-// }
-
 //Bonus questions:
 //Which player has the most points? call function mostPointsScored
 function mostPointsScored() {
@@ -236,21 +173,6 @@ function mostPointsScored() {
   const playerWithMostPoints = playersArray.reduce((a, b) => a[1].points > b[1].points ? a : b);
   return playerWithMostPoints[0];
 }
-
-// function mostPointsScored(game) {
-//   let mostPoints = 0;
-//   let playerWithMostPoints;
-//   for (const teams in game) {
-//     const team = game[teams].players;
-//     for (const player in team) {
-//       if (team[player].points > mostPoints) {
-//         mostPoints = team[player].points;
-//         playerWithMostPoints = player;
-//       }
-//     }
-//   }
-//   return playerWithMostPoints;
-// }
 
 //Which team has the most points call function winningTeam
 function winningTeam() {
@@ -261,41 +183,10 @@ function winningTeam() {
   return homePoints > awayPoints ? homeTeam().teamName : awayTeam().teamName;
 }
 
-// function winningTeam(game) {
-//   let mostPoints = 0;
-//   let winner;
-//   for (const teams in game) {
-//     let sumOfPlayerPoints = 0;
-//     let players = game[teams].players;
-//     for (const player in players) {
-//       sumOfPlayerPoints += players[player].points;
-//     }
-//     if (sumOfPlayerPoints > mostPoints) {
-//       mostPoints = sumOfPlayerPoints;
-//       winner = game[teams].teamName;
-//     }
-//   }
-//   return winner;
-// }
 //which player has the longest name? call function playerWithLongestName
 function playerWithLongestName() {
   return Object.entries(players()).reduce((a,b) => a[0].length > b[0].length ? a : b)[0];
 }
-
-// function playerWithLongestName(game) {
-//   let longestName;
-//   let longestLength = 0;
-//   for (const teams in game) {
-//     const players = game[teams].players;
-//     for (const player in players) {
-//       if (player.length > longestLength) {
-//         longestLength = player.length;
-//         longestName = player;
-//       }
-//     }
-//   }
-//   return longestName;
-// }
 
 //SUPER BONUS!!!!!!!
 //Write a function that returns true if the player with the longest name has the most steals
@@ -304,21 +195,6 @@ function doesLongNameStealATon() {
   const playerWithMostSteals = playersArray.reduce((a, b) => a[1].steals > b[1].steals ? a : b);
   return playerWithMostSteals[0] === playerWithLongestName();
 }
-// function doesLongNameStealATon(game) {
-//   let playerWithMostSteals;
-//   let steals = 0;
-//   for (const teams in game) {
-//     const players = game[teams].players;
-//     for (const player in players) {
-//       const currentPlayerSteals = players[player].steals;
-//       if (currentPlayerSteals > steals) {
-//         steals = currentPlayerSteals;
-//         playerWithMostSteals = player;
-//       }
-//     }
-//   }
-//   return playerWithMostSteals === playerWithLongestName(game);
-// }
 
 const playersArray = Object.keys(players());
 const teams = teamNames();
